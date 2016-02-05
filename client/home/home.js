@@ -8,7 +8,8 @@ Template.home.helpers({
 		var status="nologin";
 		Router.go("login");
 	}
-		return status;
+		//return Meteor.user().emails[0].address;
+		return Meteor.user().emails[0].address;
 	}
 });
 Template.home.events({
@@ -18,7 +19,26 @@ Template.home.events({
 });
 
 Template.home.events({
-'click #dashboard': function(){
-	Router.go("home");
+'click #adduser': function(){
+    Router.go("adduser");
 }
 });
+Template.home.events({
+'click #myprofile': function(){
+    Router.go("myprofile");
+}
+});
+
+
+Template.home.events({
+'click #dashboard': function(){
+    Router.go("home");
+}
+});
+
+Template.home.events({
+'click #createuser': function(){
+    Router.go("createuser");
+}
+});
+

@@ -1,0 +1,133 @@
+<head>
+    <title>Home</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="bootstrap/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+
+</body>
+<template name="usercontrol">
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="home" id="dashboard">Admin Portal</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li>
+                   <a class="navbar-brand" href=""><i class="fa fa-user">{{id}}</i></a> 
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li >
+                        <a href="home" id="dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="active">
+                        <a href="usercontrol" id="usercontrol"><i class="fa fa-fw fa-wrench"></i> User Control</a>
+                    </li>
+                    
+                    <li>
+                        <a href="myprofile" id="myprofile"><i class="fa fa-user"></i> My Profile</a>
+                    </li>
+                    <li>
+                        <a href="login" id="logout"><i class="fa fa-fw fa-power-off"></i> Logout</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            User Control
+                        </h1>
+                        <ul class="nav navbar-right top-nav">
+                            <li>
+                               <button id="newuser" class="btn btn-primary" type="button"><span class="fa fa-fw fa-edit"></span> Create User</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.row -->               
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 form-box">
+                    <h1>Users list</h1>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                <th>Userid</th>
+                                <th>EmailId</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th><center>Action</center></th></tr>
+                            </thead>
+                            <tbody>
+                                {{#each list}}
+                                <tr><td>
+                                {{_id}}</td><td>
+                                {{#each emails}}
+                                    {{address}}
+                                {{/each}}</td><td>    
+                                {{profile.fname}}</td><td>
+                                {{profile.lname}}</td><td><center>
+                                <table><tr><td>
+                                <form id="updateuser" method="post">
+                                <input type="hidden" name="userid" value={{_id}}> 
+                                <button class="btn btn-success" type="submit"><span class="glyphicon glyphicon-pencil"></span> Update</button>
+                                </form>                            
+                                </td><td>
+                                <form id="deleteuser" method="post">
+                                <input type="hidden" name="userid" value={{_id}}> 
+                                <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+                                </form>
+                                </td></tr></table></center>
+                                </td>
+                                </tr> 
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.row --> 
+                
+            </div>
+
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="bootstrap/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</template>

@@ -1,5 +1,5 @@
 <head>
-	<title>Login</title>
+	<title>UWDN</title>
 	
 </head>
 <body>
@@ -7,15 +7,21 @@
 </body>
 
 <template name="register">
-    
+    {{id}}
     <div class="container">
     <div class="panel-body">	
-      <form class="form-signin" method="post" action="/index">
+      <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Please Register</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
+        <label for="inputfname" class="label label-info">First Name</label>
+        <input name="fname" type="text" id="inputfname" class="form-control" placeholder="First Name" required autofocus>
+        <label for="inputlname" class="label label-info">Last Name</label>
+        <input name="lname" type="text" id="inputlname" class="form-control" placeholder="Last Name" required>
+        <label for="inputEmail" class="label label-info">Email address</label>
+        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+        <label for="inputPassword" class="label label-info">Password</label>
         <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <label for="inputRePassword" class="label label-info">Password</label>
+        <input name="repassword" type="password" id="inputRePassword" class="form-control" placeholder="ReEnter the Password" required>
         
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       </form>
